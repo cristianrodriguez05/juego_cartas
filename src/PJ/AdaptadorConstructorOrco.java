@@ -14,7 +14,7 @@ import javax.swing.ImageIcon;
  *
  * @author estudiantes
  */
-public class ConstructorOrco extends Constructor{
+public class AdaptadorConstructorOrco extends Constructor{
     
     Orco  orco = new Orco();
     

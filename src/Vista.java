@@ -1,6 +1,6 @@
 
 import PJ.ConstructorArquero;
-import PJ.ConstructorOrco;
+import PJ.AdaptadorConstructorOrco;
 import PJ.ConstructorGuerrero;
 import PJ.ConstructorLadron;
 import PJ.ConstructorMago;
@@ -355,7 +355,7 @@ public class Vista extends JFrame implements ActionListener {
             actualizarImagenes();
 
         } else if (e.getSource() == btnOrco) {
-            director.setConstructor(new ConstructorOrco());
+            director.setConstructor(new AdaptadorConstructorOrco());
             director.construirPersonaje();
             director.añadirLeyenda();
             personaje = director.getPersonaje();
