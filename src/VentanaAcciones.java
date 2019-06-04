@@ -3,8 +3,9 @@
  *
  * @author (╯°□°)╯︵ ┻━┻
  */
-import PJ.Director;
-import PJ.Personaje;
+import Constructor.Director;
+import Constructor.Personaje;
+import Decorator.Fuego;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
@@ -28,11 +29,13 @@ public class VentanaAcciones extends JFrame implements ActionListener {
 
     JButton accion = new JButton();
     JLabel estado = new JLabel();
+    JLabel poderSobrePJ = new JLabel();
     JButton inicio = new JButton();
+    JButton poder = new JButton();
     public Director director = new Director();
     public Personaje personaje = new Personaje();
-    int i;
-    Timer tiempo;
+    int i, ii;
+    Timer tiempo, tiempo2;
 
     public void mostrar() {
         setSize(200, 200);
@@ -47,18 +50,25 @@ public class VentanaAcciones extends JFrame implements ActionListener {
         Container c = getContentPane();
         setTitle("Catálogo de clases");
         c.setLayout(null);
+        c.add(poder);
         c.add(accion);
+        c.add(poderSobrePJ);
         c.add(estado);
         c.add(inicio);
         accion.setEnabled(false);
+        poder.setEnabled(false);
         accion.addActionListener(this);
         inicio.addActionListener(this);
-        accion.setIcon(new ImageIcon(getClass().getResource("/Imagenes/botonAtaque.png")));     
+        poder.addActionListener(this);
+        accion.setIcon(new ImageIcon(getClass().getResource("/Imagenes/botonAtaque.png")));
         inicio.setIcon(new ImageIcon(getClass().getResource("/Imagenes/iniciodeanimacion.png")));
+        poder.setIcon(new ImageIcon(getClass().getResource("/Imagenes/botonPoder.png")));
         inicio.setBorder(null);
-        accion.setBounds(45, 120, 70, 40);
+        accion.setBounds(10, 120, 70, 40);
         inicio.setBounds(40, 10, 100, 100);
+        poderSobrePJ.setBounds(40, 10, 100, 100);
         estado.setBounds(40, 10, 100, 100);
+        poder.setBounds(120, 120, 70, 40);
 
     }
 
@@ -107,6 +117,44 @@ public class VentanaAcciones extends JFrame implements ActionListener {
 
     }
 
+    public void actualizarImagenesConst() {
+        personaje = director.getPersonaje();
+        personaje= new Fuego(personaje);
+        personaje.getAccionAtacando();
+
+        ActionListener oye = new ActionListener() {
+            public void actionPerformed(ActionEvent ej) {
+                switch (ii) {
+                    case 1:
+
+                        poderSobrePJ.setIcon(new ImageIcon(getClass().getResource("/Sprite/" + personaje.getAccionPoder() + ii + ".png")));
+
+                        break;
+                    case 2:
+                        poderSobrePJ.setIcon(new ImageIcon(getClass().getResource("/Sprite/" + personaje.getAccionPoder() + ii + ".png")));
+                        break;
+
+                    case 3:
+
+                        poderSobrePJ.setIcon(new ImageIcon(getClass().getResource("/Sprite/" + personaje.getAccionPoder() + ii + ".png")));
+                        break;
+                        
+                    case 4:
+                        poderSobrePJ.setIcon(new ImageIcon(getClass().getResource("/Sprite/" + personaje.getAccionPoder() + ii + ".png")));
+                        ii = 0;
+                        break;
+
+                }
+                ii++;
+            }
+        };
+
+        tiempo2 = new Timer(200, oye);
+
+        tiempo2.start();
+
+    }
+
     public void quieto() {
         personaje.getAccionQuieto();
         estado.setIcon(new ImageIcon(getClass().getResource("/Sprite/" + personaje.getAccionQuieto() + ".png")));
@@ -117,7 +165,6 @@ public class VentanaAcciones extends JFrame implements ActionListener {
         if (e.getSource().equals(accion)) {
             director.añadirAccionatacando();
             director.añadirAccionQuieto();
-
             actualizarImagenes();
 
         }
@@ -125,9 +172,14 @@ public class VentanaAcciones extends JFrame implements ActionListener {
             director.añadirAccionQuieto();
             quieto();
             accion.setEnabled(true);
+            poder.setEnabled(true);
             inicio.setVisible(false);
+        }
+        if (e.getSource().equals(poder)) {
+            actualizarImagenesConst();
         }
 
     }
 
 }
+

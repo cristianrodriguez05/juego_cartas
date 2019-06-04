@@ -1,11 +1,11 @@
 
-import PJ.ConstructorArquero;
-import PJ.AdaptadorConstructorOrco;
-import PJ.ConstructorGuerrero;
-import PJ.ConstructorLadron;
-import PJ.ConstructorMago;
-import PJ.Director;
-import PJ.Personaje;
+import Constructor.ConstructorArquero;
+import Constructor.AdaptadorConstructorOrco;
+import Constructor.ConstructorGuerrero;
+import Constructor.ConstructorLadron;
+import Constructor.ConstructorMago;
+import Constructor.Director;
+import Constructor.Personaje;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Font;
@@ -285,7 +285,6 @@ public class Vista extends JFrame implements ActionListener {
         perga.setIcon(new ImageIcon(getClass().getResource("/Imagenes/pergamino.png")));
 
         fondo.setBounds(0, -300, 1900, 1226);
-        //muro.jpg
         fondo.setIcon(new ImageIcon(getClass().getResource("/Imagenes/tabla.png")));
 
     }
