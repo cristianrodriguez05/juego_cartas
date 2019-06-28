@@ -15,11 +15,10 @@ public class LeyendaLadron extends Leyenda{
 
     @Override
     public String mostrarLeyenda() {
-        return "El ladrón como su nombre es casi imperceptible,"
-                + " gracias a su habilidad con las armas livianas, su agilidad y velocidad al momento"
-                + " de los combates no tiene igual, no hay que confiarse al momento de luchar con un "
-                + "ladrón porque se podrían perder objetos valiosos, su única debilidad son "
-                + "los ataques mágicos.";
+        return "El ladrón se caracteriza por"
+                + " su habilidad con las armas livianas, su agilidad y velocidad al momento"
+                + " de los combates no tiene igual, pero al ser un combatiente demaciado confiado en sus"
+                + " habilidades puede ser facilmente por ataques con mucho daño.";
    
     }
     

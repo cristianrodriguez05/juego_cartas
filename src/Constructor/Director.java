@@ -38,20 +38,7 @@ public class Director {
         constructor.construirArmadura(sel);
     }
 
-    public void añadirMontura() {
-        constructor.construirMontu();
-    }
-
     public void añadirLeyenda() {
         constructor.construirLeyenda();
-    }
-
-    public void añadirAccionQuieto() {
-        constructor.construirQuieto();
-
-    }
-
-    public void añadirAccionatacando() {
-        constructor.construirAtacar();
     }
 }

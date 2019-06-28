@@ -5,15 +5,11 @@
  */
 package Constructor;
 
-import ClasesConcretas.AccionGuerreroAtacando;
-import ClasesConcretas.AccionGuerreroQuieto;
 import ClasesConcretas.ArmaGuerrero;
 import ClasesConcretas.ArmaSecundariaGuerrero;
 import ClasesConcretas.ArmaduraGuerrero;
 import ClasesConcretas.CuerpoGuerrero;
 import ClasesConcretas.LeyendaGuerrero;
-import ClasesConcretas.MonturaGuerrero;
-import FabricaAbstr.*;
 
 /**
  *
@@ -26,11 +22,8 @@ public class ConstructorGuerrero extends Constructor{
         arma = new ArmaGuerrero();
         armaSecu = new ArmaSecundariaGuerrero();
         armadura = new ArmaduraGuerrero();
-        montura = new MonturaGuerrero();
         cuerpo = new CuerpoGuerrero();
         leyenda = new LeyendaGuerrero();
-        quieto = new AccionGuerreroQuieto();
-        atacando=new AccionGuerreroAtacando();
     }
 
     @Override
@@ -41,11 +34,6 @@ public class ConstructorGuerrero extends Constructor{
     @Override
     public void construirArmSecu(int sel) {
         personaje.setArmaSecu(armaSecu.mostrarArmaSecun(sel));
-    }
-
-    @Override
-    public void construirMontu() {
-        personaje.setMontura(montura.mostrarMontura());
     }
 
     @Override
@@ -62,16 +50,6 @@ public class ConstructorGuerrero extends Constructor{
     public void construirLeyenda() {
        // System.out.println("ok");
          personaje.setLeyenda(leyenda.mostrarLeyenda());
-    }
-
-    @Override
-    public void construirQuieto() {
-        personaje.setAccionQuieto(quieto.quieto());
-    }
-
-    @Override
-    public void construirAtacar() {
-        personaje.setAccionAtacando(atacando.atacar());
     }
 
 }

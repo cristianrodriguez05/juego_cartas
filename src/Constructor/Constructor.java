@@ -14,11 +14,8 @@ public abstract class  Constructor {
     protected Arma arma;
     protected ArmaSecundaria armaSecu;
     protected Armadura armadura;
-    protected Montura montura;
     protected Cuerpo cuerpo;
-    protected Leyenda leyenda;  
-    protected Quieto quieto;
-    protected Atacando atacando;
+    protected Leyenda leyenda; 
     
     public Personaje getPersonaje(){
         return personaje;
@@ -27,10 +24,7 @@ public abstract class  Constructor {
     public abstract void construirPersonaje();
     public abstract void construirArma(int sel);
     public abstract void construirArmSecu(int sel);
-    public abstract void construirMontu();
     public abstract void construirCuerpo();
     public abstract void construirArmadura(int sel);
-    public abstract void construirLeyenda();   
-    public abstract void construirAtacar();
-    public abstract void construirQuieto();
+    public abstract void construirLeyenda();
 }

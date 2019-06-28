@@ -4,14 +4,11 @@
  * and open the template in the editor.
  */
 package Constructor;
-import ClasesConcretas.AccionArqueroQuieto;
-import ClasesConcretas.AccionArqueroAtacando;
 import ClasesConcretas.ArmaArquero;
 import ClasesConcretas.ArmaSecundariaArquero;
 import ClasesConcretas.ArmaduraArquero;
 import ClasesConcretas.CuerpoArquero;
 import ClasesConcretas.LeyendaArquero;
-import ClasesConcretas.MonturaArquero;
 /**
  *
  * @author estudiantes
@@ -23,11 +20,8 @@ public class ConstructorArquero extends Constructor{
         arma=new ArmaArquero();
         armaSecu=new ArmaSecundariaArquero();
         armadura=new ArmaduraArquero();
-        montura=new MonturaArquero(); 
         cuerpo=new CuerpoArquero();
         leyenda= new LeyendaArquero();
-        quieto = new AccionArqueroQuieto();
-        atacando=new AccionArqueroAtacando();
     }
 
     @Override
@@ -38,11 +32,6 @@ public class ConstructorArquero extends Constructor{
     @Override
     public void construirArmSecu(int sel) {
         personaje.setArmaSecu(armaSecu.mostrarArmaSecun(sel));
-    }
-
-    @Override
-    public void construirMontu() {
-        personaje.setMontura(montura.mostrarMontura());
     }
 
     @Override
@@ -59,17 +48,7 @@ public class ConstructorArquero extends Constructor{
     public void construirLeyenda() {
        // System.out.println("ok");
          personaje.setLeyenda(leyenda.mostrarLeyenda());
-    }
-
-    @Override
-    public void construirQuieto() {
-        personaje.setAccionQuieto(quieto.quieto());
-    }
-
-    @Override
-    public void construirAtacar() {
-        personaje.setAccionAtacando(atacando.atacar());
-    }  
+    } 
 
      
 }
