@@ -36,3 +36,11 @@ Finalmente el mazo sera utilizado desde el tablero para realizar las acciones ne
 ## Strategy
 
 El patron strategy en el juego de cartas nos permite proporcionar a los enemigos varios algoritmos para poder hacer uso de las cartas de equipo, potenciadoras y especiales corresponientes a estos, de esta manera podemos evitar que se generen errores o bucles al evaluar el cambio de estas en el tablero, ademas de que tambien es usado para generar los ataques teniendo en cuenta una secuencia de juego.
+
+## Iterator
+
+![Iterator](https://github.com/cristianrodriguez05/juego_cartas/blob/master/diagramas/Iterator.png)
+
+El pool de objetos se utiliza en el progrma para poder crear un mazo para el jugador dependiendo de el persoanje primario y secundario que este seleccione, podra seleccionar 60 cartas que componen el pool de objetos que sera creado, este contendra objetos del tipo carta. Las variables de estas cartas son obtenidas de archivos planos dependiendo de las clases de personaje seleccionadas.
+
+Finalmente el mazo sera utilizado desde el tablero para realizar las acciones necesarias por parte del jugador.
