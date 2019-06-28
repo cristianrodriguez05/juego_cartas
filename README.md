@@ -22,5 +22,17 @@ Al ejecutar el programa se podran seleccionar una de las clases de los Pj y se v
 
 El buider lo que hace en el programa es mostrar el personaje con el arma primaria, el arma secundaria, la armadura y la mostura seleccionada. 
 
-el director de esos elementos seleccionados los envia al costructor de cada personaje y finalmente y en la interfaz gráfica se muestra el personaje con el equipo seleccionado.
+El director de esos elementos seleccionados los envia al costructor de cada personaje y finalmente y en la interfaz gráfica se muestra el personaje con el equipo seleccionado.
 Para la implementación del builder la fabrica abstrata deja de ser relevante porque el mismo constructor puede dar el personaje con el equipo que se desea y si se hbuera dejado la fabrica se realizaria un proceso que no es necesaio, por esta razón la fabrica abstacta se utilizará para la animaciones. 
+
+## Pool de Objetos
+
+![pool](https://github.com/cristianrodriguez05/juego_cartas/blob/master/diagramas/pool%20de%20objetos.png)
+
+El pool de objetos se utiliza en el progrma para poder crear un mazo para el jugador dependiendo de el persoanje primario y secundario que este seleccione, podra seleccionar 60 cartas que componen el pool de objetos que sera creado, este contendra objetos del tipo carta. Las variables de estas cartas son obtenidas de archivos planos dependiendo de las clases de personaje seleccionadas.
+
+Finalmente el mazo sera utilizado desde el tablero para realizar las acciones necesarias por parte del jugador.
+
+## Strategy
+
+El patron strategy en el juego de cartas nos permite proporcionar a los enemigos varios algoritmos para poder hacer uso de las cartas de equipo, potenciadoras y especiales corresponientes a estos, de esta manera podemos evitar que se generen errores o bucles al evaluar el cambio de estas en el tablero, ademas de que tambien es usado para generar los ataques teniendo en cuenta una secuencia de juego.
