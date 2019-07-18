@@ -41,12 +41,13 @@ public class VentanaSlectMazo extends JFrame implements ActionListener {
     Tablero tab = new Tablero();
     Personaje personaje1 = new Personaje();
     Personaje personaje2 = new Personaje();
+    PoolCartas mazo;
     AgregaMazoBatl buscarMazo = new AgregaMazoBatl();
     SeleccionMazoPj selecCarta = new SeleccionMazoPj();
-    PoolCartas mazo;
 
     ArrayList<JButton> cartas = new ArrayList();
     ArrayList<JButton> cartas2 = new ArrayList();
+    JButton vaciar = new JButton("Vaciar");
     ArrayList<JTextField> nombreCard = new ArrayList();
     JPanel jp = new JPanel();
 
@@ -117,15 +118,20 @@ public class VentanaSlectMazo extends JFrame implements ActionListener {
         c.setLayout(null);
         jp.setLayout(null);
         jScrollPane.setBounds(10, 10, 1050, 650);
+        c.add(vaciar);
+        vaciar.setBounds(1320, 620, 100, 30);
+        vaciar.addActionListener(this);
         c.add(jugar);
         jugar.setBounds(1220, 620, 100, 30);
         jugar.addActionListener(this);
         c.add(jScrollPane);
+
         for (int k = 0; k < 60; k++) {
             JTextField nombreCard = new JTextField();
             this.nombreCard.add(nombreCard);
             c.add(nombreCard);
         }
+
         for (int j = 0; j < 30; j++) {
             this.nombreCard.get(j).setBounds(1070, 5 + j * 20, 200, 20);
             this.nombreCard.get(j).setBackground(Color.WHITE);
@@ -142,9 +148,22 @@ public class VentanaSlectMazo extends JFrame implements ActionListener {
     public void actulaizarVistaMAzo() {
 
         for (int i = 0; i < mazo.getInstance().getArray().size(); i++) {
-            System.out.println(mazo.getInstance().getArray().get(i).nombre);
+            this.nombreCard.get(i).setText(mazo.getInstance().getArray().get(i).nombre);
 
         }
+        if (mazo.getInstance().getArray().size() == 60) {
+            for (int k = 0; k < 60; k++) {
+                JButton card = new JButton("carta " + k);
+                cartas.get(k).setEnabled(false);
+
+            }
+            for (int k = 0; k < 60; k++) {
+                JButton card = new JButton("carta " + k);
+                cartas2.get(k).setEnabled(false);
+
+            }
+        }
+
     }
 
     @Override
@@ -152,6 +171,7 @@ public class VentanaSlectMazo extends JFrame implements ActionListener {
         for (int i = 0; i < 60; i++) {
 
             if (e.getSource().equals(cartas.get(i))) {
+                cartas.get(i).setEnabled(false);
                 selecCarta.buscarCarta(personaje1.getCuerpo(), i + 1);
                 mazo.getInstance().getArray().add(selecCarta.getCarta());
                 actulaizarVistaMAzo();
@@ -160,9 +180,27 @@ public class VentanaSlectMazo extends JFrame implements ActionListener {
         }
         for (int j = 0; j < 60; j++) {
             if (e.getSource().equals(cartas2.get(j))) {
+                cartas2.get(j).setEnabled(false);
                 selecCarta.buscarCarta(personaje2.getCuerpo(), j + 1);
                 mazo.getInstance().getArray().add(selecCarta.getCarta());
                 actulaizarVistaMAzo();
+            }
+        }
+        if (e.getSource().equals(vaciar)) {
+            mazo.getInstance().vaciar();
+            actulaizarVistaMAzo();
+            for (int i = 0; i < 60; i++) {
+                this.nombreCard.get(i).setText(" ");
+            }
+            for (int k = 0; k < 60; k++) {
+                
+                cartas.get(k).setEnabled(true);
+
+            }
+            for (int k = 0; k < 60; k++) {
+               
+                cartas2.get(k).setEnabled(true);
+
             }
         }
         if (e.getSource().equals(jugar)) {
@@ -173,8 +211,9 @@ public class VentanaSlectMazo extends JFrame implements ActionListener {
             tab = new Tablero();
             tab.setVisible(true);
 
-//            
-//            tab.personaje = this.personaje;
+            tab.personaje2 = this.personaje1;
+            tab.personaje1 = this.personaje2;
+            tab.mazo = this.mazo;
             tab.mostrar();
             this.dispose();
         }

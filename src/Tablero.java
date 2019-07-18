@@ -1,4 +1,6 @@
 
+import Cartas.PoolCartas;
+import Constructor.Personaje;
 import java.awt.Color;
 import java.awt.Container;
 import javax.swing.JFrame;
@@ -19,8 +21,9 @@ import javax.swing.*;
  */
 public class Tablero extends JFrame {
 
-//    Cliente cliente = new Cliente();
-//    Personaje personaje = new Personaje();
+    Personaje personaje1 = new Personaje();
+    Personaje personaje2 = new Personaje();
+    PoolCartas mazo;
 /////////////////////////////////// cartas 
     JLabel cartafon = new JLabel();
     JButton card1 = new JButton("1");
