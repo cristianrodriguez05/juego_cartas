@@ -1,0 +1,60 @@
+g(1).Armadura Principiante.guerrero.armadura.0.0.0.0.125.false.false.no.0
+g(2).Armadura Pequeño guardian.guerrero.armadura.0.0.12.0.-125.false.false.no.0
+g(3).Armadura Guerrero novato.guerrero.armadura.0.0.3.0.62.false.false.no.0
+g(4).Espada de práctica.guerrero.arma.10.0.0.0.0.false.false.no.0
+g(5).Espada de acero.guerrero.arma.10.0.0.0.0.false.false.no.0
+g(6).Espada .guerrero.arma.20.0.0.0.-125.false.false.no.0
+g(7).Espada ligera.guerrero.arma.20.0.-6.0.0.false.false.no.0
+g(8).espada de bambú.guerrero.arma.20.0.0.-6.0.false.false.no.0
+g(9).Espada básica.guerrero.arma.0.20.-6.0.0.false.false.no.0
+g(10).Espada para principantes.guerrero.arma.0.10.0.0.0.false.false.no.0
+g(11).Espada de toca.guerrero.arma.0.20.0.-6.0.false.false.no.0
+g(12).Espada de cobre.guerrero.arma.5.5.0.0.0.false.false.no.0
+g(13).Espada sin filo.guerrero.arma.5.0.3.0.0.false.false.no.0
+g(14).Espada hueso de oso.guerrero.arma.5.0.0.3.0.false.false.no.0
+g(15).Espada diente de piraña.guerrero.arma.5.0.0.0.62.false.false.no.0
+g(16).Escudo del pequño aprendiz.guerrero.secu.10.0.0.0.0.false.false.no.0
+g(17).Escudo de acero.guerrero.secu.20.0.0.0.-125.false.false.no.0
+g(18).Escudo de madera.guerrero.secu.20.0.-6.0.0.false.false.no.0
+g(19).Escudo de cobre.guerrero.secu.20.0.0.-6.0.false.false.no.0
+g(20).Escudo del pequeño guardian.guerrero.secu.5.5.0.0.0.false.false.no.0
+g(21).n.guerrero.secu.5.0.3.0.0.false.false.no.0
+g(22).nivel1.guerrero.secu.0.5.0.0.62.false.false.no.0
+g(23).nivel2.guerrero.armadura.0.0.0.0.250.false.false.no.0
+g(24).nivel2.guerrero.armadura.0.0.-12.0.500.false.false.no.0
+g(25).nivel2.guerrero.arma.20.0.0.0.0.false.false.no.0
+g(26).nivel2.guerrero.arma.0.20.0.0.0.false.false.no.0
+g(27).nivel2.guerrero.arma.0.40.0.0.-250.false.false.no.0
+g(28).nivel2.guerrero.arma.40.0.-12.0.0.false.false.no.0
+g(29).nivel2.guerrero.arma.40.0.0.0.-250.false.false.no.0
+g(30).nivel2.guerrero.arma.10.10.0.0.0.false.false.no.0
+g(31).nivel2.guerrero.arma.10.0.0.0.250.false.false.no.0
+g(32).nivel2.guerrero.secu.10.10.0.0.0.false.false.no.0
+g(33).nivel2.guerrero.secu.20.0.0.0.0.false.false.no.0
+g(34).nivel2.guerrero.secu.40.0.0.0.-250.false.false.no.0
+g(35).nivel2.guerrero.secu.40.0.-12.0.0.false.false.no.0
+g(36).nivel3.guerrero.armadura.0.0.0.0.625.false.false.no.0
+g(37).nivel3.guerrero.arma.50.0.0.0.0.false.false.no.0
+g(38).nivel3.guerrero.arma.100.0.0.0.-625.false.false.no.0
+g(39).nivel3.guerrero.secu.25.25.0.0.0.false.false.no.0
+g(40).nivel3.guerrero.secu.0.100.-30.0.0.false.false.no.0
+g(41).potencia.guerrero.potencia.200.0.0.0.0.true.false.potenciado.3
+g(42).potencia.guerrero.potencia.200.0.0.0.0.true.false.potenciado.2
+g(43).potencia.guerrero.potencia.100.100.0.0.0.true.false.potenciado.4
+g(44).potencia.guerrero.potencia.0.200.0.0.0.true.false.potenciado.2
+g(45).potencia.guerrero.potencia.100.0.60.0.0.true.false.potenciado.3
+g(46).potencia.guerrero.potencia.0.0.60.60.0.true.false.potenciado.4
+g(47).potencia.guerrero.potencia.100.0.60.0.0.true.false.potenciado.2
+g(48).potencia.guerrero.potencia.0.0.120.0.0.true.false.potenciado.3
+g(49).potencia.guerrero.potencia.0.0.120.0.0.true.false.potenciado.3
+g(50).potencia.guerrero.potencia.100.100.0.0.0.true.false.potenciado.2
+g(51).especial.guerrero.especial.0.0.0.0.0.false.true.aturdido.4
+g(52).especial.guerrero.especial.0.0.0.0.0.false.true.aturdido.3
+g(53).especial.guerrero.especial.0.0.0.0.0.false.true.aturdido.3
+g(54).especial.guerrero.especial.0.0.0.0.0.false.true.aturdido.2
+g(55).especial.guerrero.especial.0.0.0.0.0.false.true.aturdido.2
+g(56).especial.guerrero.especial.0.0.-120.0.0.false.true.sindefensa.4
+g(57).especial.guerrero.especial.0.0.-120.0.0.false.true.sindefensa.3
+g(58).especial.guerrero.especial.0.0.-120.0.0.false.true.sindefensa.3
+g(59).especial.guerrero.especial.-200.0.0.0.0.false.true.sinataque.4
+g(60).especial.guerrero.especial.-200.0.0.0.0.false.true.sinataque.3
