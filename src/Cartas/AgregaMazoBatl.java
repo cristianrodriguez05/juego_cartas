@@ -1,3 +1,10 @@
+package Cartas;
+
+import java.io.*;
+import java.util.ArrayList;
+
+public class AgregaMazoBatl {
+             
 
     public ArrayList<String> selectCarta= new ArrayList<>();
     public void buscar(String nombre) {
@@ -35,3 +42,6 @@
          }
       }
     }
+
+}
+
