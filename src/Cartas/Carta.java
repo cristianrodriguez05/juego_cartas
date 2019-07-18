@@ -10,6 +10,7 @@ package Cartas;
  * @author (╯°□°)╯︵ ┻━┻
  */
 public class Carta {
+   
 
     public String imagen = "";
     public String nombre = "";
@@ -24,5 +25,7 @@ public class Carta {
     public boolean debuff = false;
     public String estado = "";
     public int efectTurnos = 0;
+
+
 
 }
