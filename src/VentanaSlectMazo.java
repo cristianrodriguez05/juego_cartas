@@ -43,6 +43,7 @@ public class VentanaSlectMazo extends JFrame implements ActionListener {
     Personaje personaje2 = new Personaje();
     AgregaMazoBatl buscarMazo = new AgregaMazoBatl();
     SeleccionMazoPj selecCarta = new SeleccionMazoPj();
+    PoolCartas mazo;
 
     ArrayList<JButton> cartas = new ArrayList();
     ArrayList<JButton> cartas2 = new ArrayList();
@@ -92,13 +93,13 @@ public class VentanaSlectMazo extends JFrame implements ActionListener {
         }
         buscarMazo.buscar(personaje2.getCuerpo());
         for (int k = 0; k < 30; k++) {
-            cartas2.get(k).setBounds(500, (k ) * 300, 250, 300);
+            cartas2.get(k).setBounds(500, (k) * 300, 250, 300);
             cartas2.get(k).addActionListener(this);
             cartas2.get(k).setIcon(new ImageIcon(getClass().getResource("/ImgCartas/" + buscarMazo.selectCarta.get(k) + ".png")));
         }
 
         for (int k = 30; k < 60; k++) {
-            cartas2.get(k).setBounds(750, (k-30 ) * 300, 250, 300);
+            cartas2.get(k).setBounds(750, (k - 30) * 300, 250, 300);
             cartas2.get(k).addActionListener(this);
             cartas2.get(k).setIcon(new ImageIcon(getClass().getResource("/ImgCartas/" + buscarMazo.selectCarta.get(k) + ".png")));
         }
@@ -138,18 +139,30 @@ public class VentanaSlectMazo extends JFrame implements ActionListener {
 
     }
 
+    public void actulaizarVistaMAzo() {
+
+        for (int i = 0; i < mazo.getInstance().getArray().size(); i++) {
+            System.out.println(mazo.getInstance().getArray().get(i).nombre);
+
+        }
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         for (int i = 0; i < 60; i++) {
 
             if (e.getSource().equals(cartas.get(i))) {
-                selecCarta.buscarCarta(personaje1.getCuerpo(), i);
+                selecCarta.buscarCarta(personaje1.getCuerpo(), i + 1);
+                mazo.getInstance().getArray().add(selecCarta.getCarta());
+                actulaizarVistaMAzo();
             }
 
         }
         for (int j = 0; j < 60; j++) {
-            if (e.getSource().equals(cartas2.get(j ))) {
-                selecCarta.buscarCarta(personaje2.getCuerpo(), j);
+            if (e.getSource().equals(cartas2.get(j))) {
+                selecCarta.buscarCarta(personaje2.getCuerpo(), j + 1);
+                mazo.getInstance().getArray().add(selecCarta.getCarta());
+                actulaizarVistaMAzo();
             }
         }
         if (e.getSource().equals(jugar)) {

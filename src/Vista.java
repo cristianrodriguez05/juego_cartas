@@ -40,7 +40,7 @@ public class Vista extends JFrame implements ActionListener {
     JButton prim_btnMago = new JButton();
     JButton secu_btnMago = new JButton();
     JButton prim_btnArquero = new JButton();
-    JButton secu_btnArquero = new JButton();  
+    JButton secu_btnArquero = new JButton();
     JButton prim_btnLadron = new JButton();
     JButton secu_btnLadron = new JButton();
     JButton selectPJ = new JButton();
@@ -182,7 +182,7 @@ public class Vista extends JFrame implements ActionListener {
         secu_btnArmaduraB.addActionListener(this);
         secu_btnArmaduraC.addActionListener(this);
         selectPJ.addActionListener(this);
-        
+
         ImageIcon imgIcon1 = new ImageIcon(getClass().getResource("/Imagenes/sello1.png"));
         Image imgEscalada1 = imgIcon1.getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH);
         Icon iconoEscalado1 = new ImageIcon(imgEscalada1);
@@ -218,7 +218,7 @@ public class Vista extends JFrame implements ActionListener {
         prim_btnArmC.setBorder(null);
         prim_btnArmC.setBounds(230, 225, 60, 60);
         prim_btnArmC.setIcon(iconoEscalado3);
-        
+
         secu_cintaarma.setBackground(Color.black);
         secu_cintaarma.setBorder(null);
         secu_cintaarma.setBounds(1075, 175, 270, 40);
@@ -242,7 +242,7 @@ public class Vista extends JFrame implements ActionListener {
         ImageIcon imgIcon5 = new ImageIcon(getClass().getResource("/Imagenes/cintaarmasecundaria.png"));
         Image imgEscalada5 = imgIcon5.getImage().getScaledInstance(270, 40, Image.SCALE_SMOOTH);
         Icon iconoEscalado5 = new ImageIcon(imgEscalada5);
-        
+
         prim_cintaarma2.setBackground(Color.black);
         prim_cintaarma2.setBorder(null);
         prim_cintaarma2.setBounds(20, 295, 270, 40);
@@ -262,7 +262,7 @@ public class Vista extends JFrame implements ActionListener {
         prim_btnArm2C.setBorder(null);
         prim_btnArm2C.setBounds(230, 345, 60, 60);
         prim_btnArm2C.setIcon(iconoEscalado3);
-        
+
         secu_cintaarma2.setBackground(Color.black);
         secu_cintaarma2.setBorder(null);
         secu_cintaarma2.setBounds(1075, 295, 270, 40);
@@ -286,7 +286,7 @@ public class Vista extends JFrame implements ActionListener {
         ImageIcon imgIcon6 = new ImageIcon(getClass().getResource("/Imagenes/cintaarmadura.png"));
         Image imgEscalada6 = imgIcon6.getImage().getScaledInstance(270, 40, Image.SCALE_SMOOTH);
         Icon iconoEscalado6 = new ImageIcon(imgEscalada6);
-        
+
         prim_cintaarmadura.setBackground(Color.black);
         prim_cintaarmadura.setBorder(null);
         prim_cintaarmadura.setBounds(20, 415, 270, 40);
@@ -306,7 +306,7 @@ public class Vista extends JFrame implements ActionListener {
         prim_btnArmaduraC.setBorder(null);
         prim_btnArmaduraC.setBounds(230, 465, 60, 60);
         prim_btnArmaduraC.setIcon(iconoEscalado3);
-        
+
         secu_cintaarmadura.setBackground(Color.black);
         secu_cintaarmadura.setBorder(null);
         secu_cintaarmadura.setBounds(1075, 415, 270, 40);
@@ -387,7 +387,7 @@ public class Vista extends JFrame implements ActionListener {
 
         fondo.setBounds(0, -300, 1900, 1226);
         fondo.setIcon(new ImageIcon(getClass().getResource("/Imagenes/tablas.png")));
-        
+
         selectPJ.setIcon(new ImageIcon(getClass().getResource("/Imagenes/select.png")));
         selectPJ.setBorder(null);
         selectPJ.setBounds(560, 60, 250, 42);
@@ -417,7 +417,7 @@ public class Vista extends JFrame implements ActionListener {
         prim_informacion.setLineWrap(true);
         prim_informacion.setText(prim_personaje.getLeyenda());
     }
-    
+
     public void secu_actualizarImagenes() {
 
         secu_arm1.setBounds(700, 120, 306, 450);
@@ -442,6 +442,7 @@ public class Vista extends JFrame implements ActionListener {
         secu_informacion.setText(secu_personaje.getLeyenda());
     }
     VentanaSlectMazo ven = new VentanaSlectMazo();
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == prim_btnGuerrero) {
@@ -600,15 +601,16 @@ public class Vista extends JFrame implements ActionListener {
             secu_director.añadirArmadura(3);
             secu_actualizarImagenes();
 
-        }else if (e.getSource().equals(selectPJ)) {
+        } else if (e.getSource().equals(selectPJ)) {
             if (ven != null) {//si existe una venta, la cierra.
                 ven.dispose();
             }
 
             ven = new VentanaSlectMazo(); //crea la ventana y la muestra     
             ven.setVisible(true);
-//            ven.cliente = this.cliente;
-//            ven.personaje = this.personaje;
+
+            ven.personaje2 = this.secu_personaje;
+            ven.personaje1 = this.prim_personaje;
             ven.mostrar();
             this.dispose();
 
