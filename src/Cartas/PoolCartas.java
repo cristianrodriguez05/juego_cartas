@@ -16,20 +16,27 @@ public class PoolCartas {
     }
 
     private PoolCartas() {
-        Mazo = new ArrayList<Carta>();
-    
-
+     
+        
+            Mazo = new ArrayList<Carta>();
+        
     }
-  
 
     public ArrayList<Carta> getArray() {
         return this.Mazo;
     }
-    
 
     public void addToArray(Carta value) {
-        Mazo.add(value);
+            int i=0;
+            for (i = 0; i < Mazo.size(); i++) {
+               
+            }
+        
+        Mazo.add(i,value);
+    }
+    public void vaciar(){
+    Mazo.clear();
+    
     }
 
-  
 }
