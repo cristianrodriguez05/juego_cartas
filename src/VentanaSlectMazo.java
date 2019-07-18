@@ -23,7 +23,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-
+import Constructor.*;
+import Cartas.*;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -35,13 +36,16 @@ import javax.swing.JTextField;
  * @author (╯°□°)╯︵ ┻━┻
  */
 public class VentanaSlectMazo extends JFrame implements ActionListener {
-//
-//    public Cliente cliente = new Cliente();
-//    public Personaje personaje = new Personaje();
+
     JButton jugar = new JButton("jugar");
     Tablero tab = new Tablero();
+    Personaje personaje1 = new Personaje();
+    Personaje personaje2 = new Personaje();
+    AgregaMazoBatl buscarMazo = new AgregaMazoBatl();
+    SeleccionMazoPj selecCarta = new SeleccionMazoPj();
 
     ArrayList<JButton> cartas = new ArrayList();
+    ArrayList<JButton> cartas2 = new ArrayList();
     ArrayList<JTextField> nombreCard = new ArrayList();
     JPanel jp = new JPanel();
 
@@ -52,6 +56,7 @@ public class VentanaSlectMazo extends JFrame implements ActionListener {
     JButton prueba = new JButton();
 
     public void mostrar() {
+        crearCarta();
         setSize(1480, 700);
         setVisible(true);
 
@@ -60,35 +65,48 @@ public class VentanaSlectMazo extends JFrame implements ActionListener {
 
     public void crearCarta() {
 
-        for (int k = 0; k < 120; k++) {
+        for (int k = 0; k < 60; k++) {
             JButton card = new JButton("carta " + k);
             cartas.add(card);
             jp.add(card);
-        }
-        
 
-        //lugar cartas
+        }
+        for (int k = 0; k < 60; k++) {
+            JButton card = new JButton("carta " + k);
+            cartas2.add(card);
+            jp.add(card);
+
+        }
+        buscarMazo.buscar(personaje1.getCuerpo());
+
         for (int j = 0; j < 30; j++) {
+            cartas.get(j).setIcon(new ImageIcon(getClass().getResource("/ImgCartas/" + buscarMazo.selectCarta.get(j) + ".png")));
             cartas.get(j).setBounds(0, j * 300, 250, 300);
-            System.out.println(j);
+            cartas.get(j).addActionListener(this);
+
         }
         for (int k = 30; k < 60; k++) {
             cartas.get(k).setBounds(250, (k - 30) * 300, 250, 300);
-            System.out.println(k);
+            cartas.get(k).addActionListener(this);
+            cartas.get(k).setIcon(new ImageIcon(getClass().getResource("/ImgCartas/" + buscarMazo.selectCarta.get(k) + ".png")));
         }
-        for (int k = 60; k < 90; k++) {
-            cartas.get(k).setBounds(500, (k - 60) * 300, 250, 300);
-            System.out.println(k);
+        buscarMazo.buscar(personaje2.getCuerpo());
+        for (int k = 0; k < 30; k++) {
+            cartas2.get(k).setBounds(500, (k ) * 300, 250, 300);
+            cartas2.get(k).addActionListener(this);
+            cartas2.get(k).setIcon(new ImageIcon(getClass().getResource("/ImgCartas/" + buscarMazo.selectCarta.get(k) + ".png")));
         }
-        for (int k = 90; k < 120; k++) {
-            cartas.get(k).setBounds(750, (k - 90) * 300, 250, 300);
-            System.out.println(k);
+
+        for (int k = 30; k < 60; k++) {
+            cartas2.get(k).setBounds(750, (k-30 ) * 300, 250, 300);
+            cartas2.get(k).addActionListener(this);
+            cartas2.get(k).setIcon(new ImageIcon(getClass().getResource("/ImgCartas/" + buscarMazo.selectCarta.get(k) + ".png")));
         }
 
     }
 
     public VentanaSlectMazo() {
-        crearCarta();
+
         jp.setPreferredSize(new Dimension(600, 9000));
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -108,11 +126,11 @@ public class VentanaSlectMazo extends JFrame implements ActionListener {
             c.add(nombreCard);
         }
         for (int j = 0; j < 30; j++) {
-            this.nombreCard.get(j).setBounds(1070, 5+j* 20, 200, 20);
+            this.nombreCard.get(j).setBounds(1070, 5 + j * 20, 200, 20);
             this.nombreCard.get(j).setBackground(Color.WHITE);
         }
         for (int j = 30; j < 60; j++) {
-            this.nombreCard.get(j).setBounds(1270, 5+(j- 30)* 20, 200, 20);
+            this.nombreCard.get(j).setBounds(1270, 5 + (j - 30) * 20, 200, 20);
             this.nombreCard.get(j).setBackground(Color.WHITE);
         }
 
@@ -122,17 +140,28 @@ public class VentanaSlectMazo extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        for (int i = 0; i < 60; i++) {
+
+            if (e.getSource().equals(cartas.get(i))) {
+                selecCarta.buscarCarta(personaje1.getCuerpo(), i);
+            }
+
+        }
+        for (int j = 0; j < 60; j++) {
+            if (e.getSource().equals(cartas2.get(j ))) {
+                selecCarta.buscarCarta(personaje2.getCuerpo(), j);
+            }
+        }
         if (e.getSource().equals(jugar)) {
-            if (tab != null) {//si existe una venta, la cierra.
+            if (tab != null) {
                 tab.dispose();
             }
 
-            tab = new Tablero(); //crea la ventana y la muestra     
+            tab = new Tablero();
             tab.setVisible(true);
 
-//            tab.cliente = this.cliente;
+//            
 //            tab.personaje = this.personaje;
-
             tab.mostrar();
             this.dispose();
         }
